@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Product Grid (single column)</title>
+  <link href="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #efefef;
+      --card-bg: #ffffff;
+      --muted: #666;
+      --accent: #222;
+      --container-border: #222;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:28px 12px;
+      color:var(--accent);
+    }
+
+    /* Outer phone-like frame */
+    .frame{
+      width:360px;                 /* mobile width like your screenshot */
+      border:6px solid var(--container-border);
+      border-radius:4px;
+      background:linear-gradient(#f6f6f6,#f3f3f3);
+      box-shadow: 0 6px 0 rgba(0,0,0,0.4) inset;
+      padding:18px;
+    }
+
+    header.title{
+      text-align:center;
+      font-weight:700;
+      margin-bottom:16px;
+      font-size:18px;
+      color:var(--accent);
+    }
+
+    /* product list */
+    .products{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding:8px 6px;
+    }
+
+    .card{
+      background:var(--card-bg);
+      border-radius:10px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      padding:18px 14px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      border:1px solid rgba(0,0,0,0.04);
+    }
+
+    .card img{
+      width:48px;
+      height:48px;
+      object-fit:cover;
+      margin-bottom:8px;
+      filter:drop-shadow(0 1px 0 rgba(0,0,0,0.04));
+    }
+
+    .product-name{
+      font-weight:600;
+      margin:6px 0 6px;
+      font-size:16px;
+    }
+
+    .desc{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.35;
+      margin-bottom:10px;
+      max-width:240px;
+    }
+
+    .price{
+      font-weight:700;
+      font-size:15px;
+      letter-spacing:0.2px;
+    }
+
+    /* small subtle rounded divider between cards (visual spacing like screenshot) */
+    .products .card::after{
+      content:"";
+      display:block;
+    }
+
+    /* responsive: if viewport is wide, cards can form grid (optional) */
+    @media(min-width:720px){
+      .frame{ width:760px; }
+      .products{
+        gap:18px;
+        flex-direction:row;
+        flex-wrap:wrap;
+      }
+      .card{
+        width:calc(50% - 16px);
+        margin:8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame" role="region" aria-label="product list">
+    <header class="title">Responsive Product Grid</header>
+
+    <div class="products">
+      <!-- Product 1 -->
+      <article class="card" aria-labelledby="p1">
+        <img src="https://via.placeholder.com/48?text=1" alt="Product 1 thumbnail">
+        <h3 id="p1" class="product-name">Product 1</h3>
+        <p class="desc">High-quality item with great features.</p>
+        <div class="price">₹498</div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="card" aria-labelledby="p2">
+        <img src="https://via.placeholder.com/48?text=2" alt="Product 2 thumbnail">
+        <h3 id="p2" class="product-name">Product 2</h3>
+        <p class="desc">Durable and stylish for daily use.</p>
+        <div class="price">₹799</div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="card" aria-labelledby="p3">
+        <img src="https://via.placeholder.com/48?text=3" alt="Product 3 thumbnail">
+        <h3 id="p3" class="product-name">Product 3</h3>
+        <p class="desc">Lightweight and comfortable.</p>
+        <div class="price">₹1,299</div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="card" aria-labelledby="p4">
+        <img src="https://via.placeholder.com/48?text=4" alt="Product 4 thumbnail">
+        <h3 id="p4" class="product-name">Product 4</h3>
+        <p class="desc">Trendy design with premium quality.</p>
+        <div class="price">₹999</div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>
