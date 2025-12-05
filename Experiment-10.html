@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Product Grid</title>
+  <style>
+    :root{
+      --bg: #f3f4f6;
+      --card-bg: #fff;
+      --muted: #6b7280;
+      --accent: #111827;
+      --shadow: 0 6px 18px rgba(15,23,42,0.08);
+      --radius: 12px;
+      --container-max: 1100px;
+      --gap: 20px;
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page{
+      max-width:var(--container-max);
+      margin:36px auto;
+      padding:28px;
+      background:#fff0; /* transparent center area */
+    }
+
+    header{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    header h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:0.2px;
+    }
+    header p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Grid */
+    .grid{
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns: repeat(4, 1fr); /* desktop default: 4 cards */
+      align-items:start;
+    }
+
+    /* Product card */
+    .card{
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      min-height:160px;
+    }
+
+    .card img{
+      width:64px;
+      height:64px;
+      object-fit:contain;
+      margin-bottom:12px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:16px;
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .card p.desc{
+      margin:10px 0 0;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.4;
+      max-width:220px;
+    }
+
+    .card .price{
+      margin-top:12px;
+      font-weight:700;
+      color:var(--accent);
+      font-size:15px;
+    }
+
+    /* Utility: center container inside a light panel like the screenshot */
+    .panel{
+      border: 3px solid #1f2937;
+      padding:20px;
+      background:#f7f7f7;
+    }
+
+    /* Responsive breakpoints */
+    /* Tablet: 2 cards per row at widths <= 1024px */
+    @media (max-width: 1024px){
+      .grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile: 1 card per row */
+    @media (max-width: 600px){
+      .grid{
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .card p.desc{max-width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="panel">
+      <header>
+        <h1>Responsive Product Grid</h1>
+        <p>On <strong>tablet (≤1024px)</strong>: 2 product cards per row.</p>
+      </header>
+
+      <main>
+        <section class="grid" aria-label="Products">
+          <!-- Product 1 -->
+          <article class="card" role="article">
+            <img src="https://via.placeholder.com/64?text=1" alt="Product 1 image">
+            <h3>Product 1</h3>
+            <p class="desc">High-quality item with great features and daily comfort.</p>
+            <div class="price">₹4,229</div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="card" role="article">
+            <img src="https://via.placeholder.com/64?text=2" alt="Product 2 image">
+            <h3>Product 2</h3>
+            <p class="desc">Durable and stylish for everyday use.</p>
+            <div class="price">₹7,299</div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="card" role="article">
+            <img src="https://via.placeholder.com/64?text=3" alt="Product 3 image">
+            <h3>Product 3</h3>
+            <p class="desc">Lightweight and comfortable — perfect for long wear.</p>
+            <div class="price">₹1,299</div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="card" role="article">
+            <img src="https://via.placeholder.com/64?text=4" alt="Product 4 image">
+            <h3>Product 4</h3>
+            <p class="desc">Trendy design with premium quality materials.</p>
+            <div class="price">₹2,999</div>
+          </article>
+
+          <!-- Add more product cards as needed -->
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
